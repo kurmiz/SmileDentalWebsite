@@ -25,7 +25,7 @@ const doctors = [
     experience: 8,
     education: "Manipal College of Dental Sciences, India",
     specialties: ["Braces", "Aligners", "Pediatric Orthodontics"],
-    image: "https://images.unsplash.com/photo-1594824476967-48c8b964ac31?w=400&h=400&fit=crop&crop=face",
+    image: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=400&h=400&fit=crop&crop=face",
   },
   {
     name: "Dr. Rajesh Pandey",
