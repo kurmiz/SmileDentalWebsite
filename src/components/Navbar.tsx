@@ -22,7 +22,9 @@ const Navbar = () => {
   const scrollTo = (href: string) => {
     setOpen(false);
     setServicesOpen(false);
-    document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
+    setTimeout(() => {
+      document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
+    }, 150);
   };
 
   const navLinks = [
@@ -152,13 +154,14 @@ const Navbar = () => {
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="lg:hidden border-t border-border bg-background overflow-hidden"
+            className="lg:hidden absolute top-16 left-0 right-0 border-b border-border bg-background shadow-xl overflow-hidden z-50"
           >
             {navLinks.map((l) => (
               <button
                 key={l.label}
                 onClick={() => scrollTo(l.href)}
                 className="block w-full text-left px-6 py-3.5 text-sm font-medium text-foreground hover:bg-muted transition-colors"
+                style={{ touchAction: "manipulation" }}
               >
                 {l.label}
               </button>
@@ -166,12 +169,13 @@ const Navbar = () => {
             <button
               onClick={() => scrollTo("#services")}
               className="block w-full text-left px-6 py-3.5 text-sm font-medium text-foreground hover:bg-muted transition-colors"
+              style={{ touchAction: "manipulation" }}
             >
               {t("Services", "सेवाहरू")}
             </button>
             <div className="px-6 py-3">
               <Button className="w-full rounded-xl bg-green-600 text-white hover:bg-green-700" asChild>
-                <a href="tel:+977-9800000000">
+                <a href="tel:+977-9800000000" onClick={() => setOpen(false)}>
                   <Phone className="w-4 h-4 mr-1" /> {t("Call Now", "कल गर्नुहोस्")}
                 </a>
               </Button>
